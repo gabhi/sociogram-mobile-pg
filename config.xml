@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+xmlns:gap = "http://phonegap.com/ns/1.0"
+id        = "com.phonegap.example"
+versionCode="10" 
+version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>PhoneGap Facebook plug-in</name>
+
+    <description>
+        An example for phonegap build docs.
+    </description>
+
+    <author href="http://psjplearn.blogspot.com" email="gaikwad.abhijit@gmail.com">
+    Abhijit Gaikwad
+  </author>
+
+  <gap:plugin name="com.phonegap.plugins.facebookconnect">
+    <param name="APP_ID" value="404063823048178" />
+    <param name="APP_NAME" value="Android app sociogram" />
+
+  </gap:plugin>
+
+
+</widget>
