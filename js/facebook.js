@@ -4,13 +4,15 @@ fbWrapper = {
     api: function(url) {
         var deferred = $.Deferred();
         try {
-            console.log('calling fb api');
+            alert('calling fb api');
             FB.api(url, function (response) {
                 deferred.resolve(response);
             });
         } catch (e) {
+            alert("fail facebook call")
             deferred.fail();
         }
+        alert(deferred);
         return deferred;
     }
 
