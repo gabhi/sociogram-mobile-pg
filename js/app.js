@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
 }, false);
 
 window.onerror = function(message, url, lineNumber) {
-    console.log("Error: " + message + " in " + url + " at line " + lineNumber);
+    alert("Error: " + message + " in " + url + " at line " + lineNumber);
     alert("Error: " + message + " in " + url + " at line " + lineNumber);
 }
 
@@ -217,7 +217,7 @@ $(document).on('ready', function () {
         Backbone.history.start();
         FB.init({ appId: "404063823048178", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
     });
-
+alert(FB);
     FB.Event.subscribe('auth.statusChange', function(event) {
         if (event.status === 'connected') {
             FB.api('/me', function (response) {
@@ -244,9 +244,11 @@ $(document).on('click', '.logout', function () {
 });
 
 $(document).on('login', function () {
+  alert("login clicked");
     FB.login(function(response) {
-        console.log("Logged In");
+        alert("Logged In");
     }, {scope: 'publish_actions,user_status,friends_status,read_stream'});
+      alert("login1 done");
     return false;
 });
 
