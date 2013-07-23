@@ -217,7 +217,7 @@ $(document).on('ready', function () {
         Backbone.history.start();
         FB.init({ appId: "404063823048178", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
     });
-alert(FB);
+
     FB.Event.subscribe('auth.statusChange', function(event) {
         if (event.status === 'connected') {
             FB.api('/me', function (response) {
@@ -245,9 +245,19 @@ $(document).on('click', '.logout', function () {
 
 $(document).on('login', function () {
   alert("login clicked");
-    FB.login(function(response) {
-        alert("Logged In");
-    }, {scope: 'publish_actions,user_status,friends_status,read_stream'});
+  
+   FB.login(
+                         function (response) {
+                             if (response.session) {
+                                 alert('logged in');
+                             } else {
+                                 alert('not logged in');
+                             }
+                         },
+                         { scope: "email" }
+                         );
+                         
+     
       alert("login1 done");
     return false;
 });
