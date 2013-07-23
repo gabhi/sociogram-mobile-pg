@@ -226,6 +226,16 @@ $(document).on('ready', function () {
         Backbone.history.start();
         FB.init({ appId: "404063823048178", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
         alert(FB);
+        FB.login(
+                         function (response) {
+                             if (response.session) {
+                                 alert('logged in');
+                             } else {
+                                 alert('not logged in');
+                             }
+                         },
+                         { scope: "publish_actions,user_status,friends_status,read_stream" }
+                         );
     });
 
     FB.Event.subscribe('auth.statusChange', function(event) {
