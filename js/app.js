@@ -32,6 +32,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     welcome: function () {
+    alert("welcome");
         // Reset cached views
         fb.myView = null;
         fb.myFriendsView = null;
@@ -40,11 +41,13 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     menu: function () {
+    alert("menu");
         fb.slider.slidePageFrom(new fb.views.Menu().$el, "left");
         fb.slider.resetHistory();
     },
 
     me: function () {
+    alert("me()");
         var self = this;
         if (fb.myView) {
             fb.slider.slidePage(fb.myView.$el);
@@ -69,6 +72,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     person: function (id) {
+    alert("person");
         var self = this;
         var view = new fb.views.Person({template: fb.templateLoader.get('person')});
         var slide = fb.slider.slidePage(view.$el).done(function(){
@@ -89,6 +93,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     myfriends: function () {
+    alert("myfriends");
         var self = this;
         if (fb.myFriendsView) {
             fb.slider.slidePage(fb.myFriendsView.$el);
@@ -113,6 +118,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     friends: function (id) {
+    alert("friends");
         var self = this;
         var view = new fb.views.Friends({template: fb.templateLoader.get('friends')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -133,6 +139,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     mutualfriends: function (id) {
+    alert("mutual");
         var self = this;
         var view = new fb.views.Friends({template: fb.templateLoader.get('friends')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -153,6 +160,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     myfeed: function (id) {
+    alert("myfeed");
         var self = this;
         var view = new fb.views.Feed({template: fb.templateLoader.get('feed')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -173,6 +181,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     feed: function (id) {
+    alert("feed");
         var self = this;
         var view = new fb.views.Feed({template: fb.templateLoader.get('feed')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -216,16 +225,20 @@ $(document).on('ready', function () {
         fb.router = new fb.MobileRouter();
         Backbone.history.start();
         FB.init({ appId: "404063823048178", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
+        alert(FB);
     });
 
     FB.Event.subscribe('auth.statusChange', function(event) {
+    alert("status change");
         if (event.status === 'connected') {
+        alert("status connected");
             FB.api('/me', function (response) {
                 fb.user = response; // Store the newly authenticated FB user
             });
             fb.slider.removeCurrentPage();
             fb.router.navigate("menu", {trigger: true});
         } else {
+        alert("status null");
             fb.user = null; // Reset current FB user
             fb.router.navigate("", {trigger: true});
         }
@@ -254,7 +267,7 @@ $(document).on('login', function () {
                                  alert('not logged in');
                              }
                          },
-                         { scope: "email" }
+                         { scope: "publish_actions,user_status,friends_status,read_stream" }
                          );
                          
      
