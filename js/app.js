@@ -228,25 +228,36 @@ $(document).on('ready', function () {
          
        
     });
+  
+    // Check if the current user is logged in and has authorized the app
+      FB.getLoginStatus(checkLoginStatus);
 
+      // Login in the current user via Facebook and ask for email permission
+      function authUser() {
+        FB.login(checkLoginStatus, {scope:'email'});
+      }
 
-FB.Event.subscribe('auth.authResponseChange', function(response) {
-    alert("status auth.authResponseChange change " );
-        if (response.status === 'connected') {
-        alert("status auth.authResponseChange connected");
-            FB.api('/me', function (response) {
+      // Check the result of the user status and display login button if necessary
+      function checkLoginStatus(response) {
+        if(response && response.status == 'connected') {
+          alert('User is authorized');
+
+          // Hide the login button
+           FB.api('/me', function (response) {
                 fb.user = response; // Store the newly authenticated FB user
             });
             fb.slider.removeCurrentPage();
             fb.router.navigate("menu", {trigger: true});
+
+          // Now Personalize the User Experience
+          console.log('Access Token: ' + response.authResponse.accessToken);
         } else {
-        alert("status auth.authResponseChange null");
-            fb.user = null; // Reset current FB user
+          alert('User is not authorized');
+
+           fb.user = null; // Reset current FB user
             fb.router.navigate("", {trigger: true});
         }
-    });
-  
-    
+      }
   
     
    
