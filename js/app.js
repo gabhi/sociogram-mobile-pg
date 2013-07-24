@@ -226,16 +226,7 @@ $(document).on('ready', function () {
         Backbone.history.start();
         FB.init({ appId: "480506615360650", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
         alert(FB);
-       FB.login(function(response) {
-   if (response.authResponse) {
-     alert('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       alert('Good to see you, ' + response.name + '.');
-     });
-   } else {
-    alert('User cancelled login or did not fully authorize.');
-   }
- });
+       
     });
 
     FB.Event.subscribe('auth.statusChange', function(event) {
@@ -269,7 +260,16 @@ $(document).on('click', '.logout', function () {
 $(document).on('login', function () {
   alert("login clicked");
   
-  
+  FB.login(function(response) {
+   if (response.authResponse) {
+     alert('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+       alert('Good to see you, ' + response.name + '.');
+     });
+   } else {
+    alert('User cancelled login or did not fully authorize.');
+   }
+ }, {scope: 'email,user_likes'});
                          
      
       alert("login1 done");
