@@ -18,11 +18,11 @@ version   = "1.0.0">
   </author>
 
  <plugin name="org.apache.cordova.facebook.Connect" value="org.apache.cordova.facebook.ConnectPlugin" />
-
-    <param name="APP_ID" value="404063823048178" />
+<gap:plugin name="org.apache.cordova.facebook.Connect">
+   <param name="APP_ID" value="404063823048178" />
     <param name="APP_NAME" value="Android app sociogram" />
 
-  </plugin>
+  </gap:plugin>
 
 
 </widget>
