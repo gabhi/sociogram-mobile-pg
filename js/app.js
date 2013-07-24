@@ -245,22 +245,7 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
             fb.router.navigate("", {trigger: true});
         }
     });
-    
-    FB.Event.subscribe('auth.statusChange', function(response) {
-    alert("status auth.statusChange change "  );
-        if (response.status === 'connected') {
-        alert("status auth.statusChange connected");
-            FB.api('/me', function (response) {
-                fb.user = response; // Store the newly authenticated FB user
-            });
-            fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
-        } else {
-        alert("status auth.statusChange null");
-            fb.user = null; // Reset current FB user
-            fb.router.navigate("", {trigger: true});
-        }
-    });
+  
     
   
     
