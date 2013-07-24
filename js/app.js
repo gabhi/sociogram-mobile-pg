@@ -258,18 +258,11 @@ $(document).on('click', '.logout', function () {
 });
 
 $(document).on('login', function () {
-  alert("login clicked");
+  alert("login c11111111licked");
   
-  FB.login(function(response) {
-   if (response.authResponse) {
-     alert('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       alert('Good to see you, ' + response.name + '.');
-     });
-   } else {
-    alert('User cancelled login or did not fully authorize.');
-   }
- }, {scope: 'email,user_likes'});
+   FB.login(function(response) {
+   alert(response);
+ }, {scope: 'email'});
                          
      
       alert("login1 done");
