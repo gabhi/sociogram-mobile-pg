@@ -269,16 +269,7 @@ $(document).on('click', '.logout', function () {
 $(document).on('login', function () {
   alert("login clicked");
   
-   FB.login(
-                         function (response) {
-                             if (response.session) {
-                                 alert('logged in');
-                             } else {
-                                 alert('not logged in');
-                             }
-                         },
-                         { scope: "publish_actions,user_status,friends_status,read_stream" }
-                         );
+  
                          
      
       alert("login1 done");
