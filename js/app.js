@@ -230,9 +230,9 @@ $(document).on('ready', function () {
     });
 
 
-FB.Event.subscribe('auth.authResponseChange', function(event) {
-    alert("status change " );
-        if (event.status === 'connected') {
+FB.Event.subscribe('auth.authResponseChange', function(response) {
+    alert("status change "+response.status );
+        if (response.status === 'connected') {
         alert("status connected");
             FB.api('/me', function (response) {
                 fb.user = response; // Store the newly authenticated FB user
@@ -247,37 +247,9 @@ FB.Event.subscribe('auth.authResponseChange', function(event) {
     });
     
     
-   FB.Event.subscribe('auth.statusChange', function(event) {
-    alert("status change " );
-        if (event.status === 'connected') {
-        alert("status connected");
-            FB.api('/me', function (response) {
-                fb.user = response; // Store the newly authenticated FB user
-            });
-            fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
-        } else {
-        alert("status null");
-            fb.user = null; // Reset current FB user
-            fb.router.navigate("", {trigger: true});
-        }
-    });
+  
     
-    FB.Event.subscribe('auth.login', function(event) {
-    alert("status change " );
-        if (event.status === 'connected') {
-        alert("status connected");
-            FB.api('/me', function (response) {
-                fb.user = response; // Store the newly authenticated FB user
-            });
-            fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
-        } else {
-        alert("status null");
-            fb.user = null; // Reset current FB user
-            fb.router.navigate("", {trigger: true});
-        }
-    });
+   
 
 });
 
