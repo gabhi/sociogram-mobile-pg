@@ -225,12 +225,12 @@ $(document).on('ready', function () {
         fb.router = new fb.MobileRouter();
         Backbone.history.start();
         FB.init({ appId: "480506615360650", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
-        alert(FB);
+         
        
     });
 
-    FB.Event.subscribe('auth.statusChange', function(event) {
-    alert("status change");
+    FB.Event.subscribe('auth.login', function(event) {
+    alert("status change " + event.status);
         if (event.status === 'connected') {
         alert("status connected");
             FB.api('/me', function (response) {
