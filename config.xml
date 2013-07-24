@@ -17,11 +17,12 @@ version   = "1.0.0">
     Abhijit Gaikwad
   </author>
 
-  <gap:plugin name="com.phonegap.plugins.facebookconnect">
+ <plugin name="org.apache.cordova.facebook.Connect" value="org.apache.cordova.facebook.ConnectPlugin" />
+
     <param name="APP_ID" value="404063823048178" />
     <param name="APP_NAME" value="Android app sociogram" />
 
-  </gap:plugin>
+  </plugin>
 
 
 </widget>
