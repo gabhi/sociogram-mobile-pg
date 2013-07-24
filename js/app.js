@@ -234,7 +234,7 @@ $(document).on('ready', function () {
                                  alert('not logged in');
                              }
                          },
-                         { scope: "publish_actions,user_status,friends_status,read_stream" }
+                         { scope: "email" }
                          );
     });
 
