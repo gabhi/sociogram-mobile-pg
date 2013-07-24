@@ -243,22 +243,7 @@ $(document).on('ready', function () {
             fb.router.navigate("", {trigger: true});
         }
     });
-   FB.Event.subscribe('auth.login', function(response) {
-    alert("status auth.login change " );
-        if (response.status === 'connected') {
-        alert("status auth.login connected");
-            FB.api('/me', function (response) {
-                fb.user = response; // Store the newly authenticated FB user
-            });
-            fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
-        } else {
-        alert("status auth.authResponseChange null");
-            fb.user = null; // Reset current FB user
-            fb.router.navigate("", {trigger: true});
-        }
-    });
-    
+   
    
 
 });
@@ -277,14 +262,11 @@ $(document).on('login', function () {
   alert("login c11111111licked");
   
    FB.login(function(response) {
-    FB.api('/me', function (response) {
-                fb.user = response; // Store the newly authenticated FB user
-            });
-            fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
+     alert("logged in");
+     fb.router.navigate("", {trigger: true});
  }, {scope: 'email'});
                          
-     
+     fb.router.navigate("", {trigger: true});
       alert("login1 done");
     return false;
 });
