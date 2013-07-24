@@ -19,8 +19,8 @@ version   = "1.0.0">
 
  
 <gap:plugin name="com.phonegap.plugins.facebookconnect">
-   <param name="APP_ID" value="404063823048178" />
-    <param name="APP_NAME" value="Android app sociogram" />
+   <param name="APP_ID" value="480506615360650" />
+    <param name="APP_NAME" value="Flymigo" />
 
   </gap:plugin>
 
