@@ -262,11 +262,11 @@ $(document).on('login', function () {
   alert("login c11111111licked");
   
    FB.login(function(response) {
-     alert("logged in");
-     fb.router.navigate("", {trigger: true});
+    fb.slider.removeCurrentPage();
+            fb.router.navigate("menu", {trigger: true});
  }, {scope: 'email'});
-                         
-     fb.router.navigate("", {trigger: true});
+     fb.slider.removeCurrentPage();
+            fb.router.navigate("menu", {trigger: true});
       alert("login1 done");
     return false;
 });
