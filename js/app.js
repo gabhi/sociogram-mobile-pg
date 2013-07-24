@@ -224,18 +224,18 @@ $(document).on('ready', function () {
     fb.templateLoader.load(['menu', 'welcome', 'login', 'person', 'friends', 'feed', 'post', 'postui', 'error', 'revoke'], function () {
         fb.router = new fb.MobileRouter();
         Backbone.history.start();
-        FB.init({ appId: "404063823048178", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
+        FB.init({ appId: "480506615360650", nativeInterface: CDV.FB, useCachedDialogs: false, status: true });
         alert(FB);
-        FB.login(
-                         function (response) {
-                             if (response.session) {
-                                 alert('logged in');
-                             } else {
-                                 alert('not logged in');
-                             }
-                         },
-                         { scope: "email" }
-                         );
+       FB.login(function(response) {
+   if (response.authResponse) {
+     alert('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+       alert('Good to see you, ' + response.name + '.');
+     });
+   } else {
+    alert('User cancelled login or did not fully authorize.');
+   }
+ });
     });
 
     FB.Event.subscribe('auth.statusChange', function(event) {
