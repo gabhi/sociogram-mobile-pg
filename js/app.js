@@ -231,7 +231,7 @@ $(document).on('ready', function () {
 
 
 FB.Event.subscribe('auth.authResponseChange', function(event) {
-    alert("status change " + event.status);
+    alert("status change " );
         if (event.status === 'connected') {
         alert("status connected");
             FB.api('/me', function (response) {
@@ -248,7 +248,7 @@ FB.Event.subscribe('auth.authResponseChange', function(event) {
     
     
    FB.Event.subscribe('auth.statusChange', function(event) {
-    alert("status change " + event.status);
+    alert("status change " );
         if (event.status === 'connected') {
         alert("status connected");
             FB.api('/me', function (response) {
@@ -264,7 +264,7 @@ FB.Event.subscribe('auth.authResponseChange', function(event) {
     });
     
     FB.Event.subscribe('auth.login', function(event) {
-    alert("status change " + event.status);
+    alert("status change " );
         if (event.status === 'connected') {
         alert("status connected");
             FB.api('/me', function (response) {
