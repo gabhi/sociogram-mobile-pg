@@ -12,7 +12,7 @@ fbWrapper = {
             //alert("fail facebook call")
             deferred.fail();
         }
-        alert(deferred);
+      //  alert(deferred);
         return deferred;
     }
 
