@@ -228,16 +228,7 @@ $(document).on('ready', function () {
          
        
     });
-    FB.Event.subscribe('auth.statusChange', function(session) {
-    if (session.authResponse) { 
-       
-      FB.api('/me', function (response) {
-                fb.user = response; // Store the newly authenticated FB user
-            });
-            fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
-    }
-  });
+ 
   
    FB.Event.subscribe('auth.authResponseChange', function(session) {
    // alert("status auth.authResponseChange change " );
