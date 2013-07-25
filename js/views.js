@@ -7,7 +7,6 @@ fb.views.Menu = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template());
-        alert("menu ");
         return this;
     }
 
@@ -31,9 +30,9 @@ fb.views.Welcome = Backbone.View.extend({
     },
 
     login: function () {
-        alert("login1 ");
+       
         $(document).trigger('login');
-        alert("login2 ");
+       
         return false;
     }
 
