@@ -228,17 +228,17 @@ $(document).on('ready', function () {
          
        
     });
-   FB.Event.subscribe('auth.authResponseChange', function(response) {
-    alert("status auth.authResponseChange change " );
-        if (response.status === 'connected') {
-        alert("status auth.authResponseChange connected");
+   FB.Event.subscribe('auth.authResponseChange', function(session) {
+   // alert("status auth.authResponseChange change " );
+        if (session.status === 'connected') {
+        //alert("status auth.authResponseChange connected");
             FB.api('/me', function (response) {
                 fb.user = response; // Store the newly authenticated FB user
             });
             fb.slider.removeCurrentPage();
             fb.router.navigate("menu", {trigger: true});
         } else {
-        alert("status auth.authResponseChange null");
+        //alert("status auth.authResponseChange null");
             fb.user = null; // Reset current FB user
             fb.router.navigate("", {trigger: true});
         }
