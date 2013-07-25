@@ -20,8 +20,8 @@ fb.views.Welcome = Backbone.View.extend({
         this.render();
     },
 
-    render: function () {alert("welcome1 ");
-        this.$el.html(this.template());alert("welcome2 ");
+    render: function () { 
+        this.$el.html(this.template());
         return this;
     },
 
