@@ -3,8 +3,8 @@ window.addEventListener('load', function () {
 }, false);
 
 window.onerror = function(message, url, lineNumber) {
-    alert("Error: " + message + " in " + url + " at line " + lineNumber);
-    alert("Error: " + message + " in " + url + " at line " + lineNumber);
+    console.log("Error: " + message + " in " + url + " at line " + lineNumber);
+    //alert("Error: " + message + " in " + url + " at line " + lineNumber);
 }
 
 var fb = new MobileApp();
@@ -228,6 +228,17 @@ $(document).on('ready', function () {
          
        
     });
+    FB.Event.subscribe('auth.statusChange', function(session) {
+    if (session.authResponse) { 
+       
+      FB.api('/me', function (response) {
+                fb.user = response; // Store the newly authenticated FB user
+            });
+            fb.slider.removeCurrentPage();
+            fb.router.navigate("menu", {trigger: true});
+    }
+  });
+  
    FB.Event.subscribe('auth.authResponseChange', function(session) {
    // alert("status auth.authResponseChange change " );
         if (session.status === 'connected') {
@@ -262,7 +273,7 @@ $(document).on('login', function () {
   //alert("login c11111111licked");
   
    FB.login(null,{scope: 'email'});
-     window.location.reload();
+     //window.location.reload();
      // alert("login1 done");
     return false;
 });
