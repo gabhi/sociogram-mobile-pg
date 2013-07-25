@@ -32,7 +32,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     welcome: function () {
-    alert("welcome");
+   // alert("welcome");
         // Reset cached views
         fb.myView = null;
         fb.myFriendsView = null;
@@ -41,13 +41,13 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     menu: function () {
-    alert("menu");
+    //alert("menu");
         fb.slider.slidePageFrom(new fb.views.Menu().$el, "left");
         fb.slider.resetHistory();
     },
 
     me: function () {
-    alert("me()");
+   // alert("me()");
         var self = this;
         if (fb.myView) {
             fb.slider.slidePage(fb.myView.$el);
@@ -72,7 +72,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     person: function (id) {
-    alert("person");
+    //alert("person");
         var self = this;
         var view = new fb.views.Person({template: fb.templateLoader.get('person')});
         var slide = fb.slider.slidePage(view.$el).done(function(){
@@ -93,7 +93,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     myfriends: function () {
-    alert("myfriends");
+   // alert("myfriends");
         var self = this;
         if (fb.myFriendsView) {
             fb.slider.slidePage(fb.myFriendsView.$el);
@@ -118,7 +118,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     friends: function (id) {
-    alert("friends");
+    //alert("friends");
         var self = this;
         var view = new fb.views.Friends({template: fb.templateLoader.get('friends')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -139,7 +139,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     mutualfriends: function (id) {
-    alert("mutual");
+    //alert("mutual");
         var self = this;
         var view = new fb.views.Friends({template: fb.templateLoader.get('friends')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -160,7 +160,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     myfeed: function (id) {
-    alert("myfeed");
+    //alert("myfeed");
         var self = this;
         var view = new fb.views.Feed({template: fb.templateLoader.get('feed')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -181,7 +181,7 @@ fb.MobileRouter = Backbone.Router.extend({
     },
 
     feed: function (id) {
-    alert("feed");
+    //alert("feed");
         var self = this;
         var view = new fb.views.Feed({template: fb.templateLoader.get('feed')});
         var slide = fb.slider.slidePage(view.$el).done(function() {
@@ -259,11 +259,11 @@ $(document).on('click', '.logout', function () {
 });
 
 $(document).on('login', function () {
-  alert("login c11111111licked");
+  //alert("login c11111111licked");
   
    FB.login(null,{scope: 'email'});
      
-      alert("login1 done");
+     // alert("login1 done");
     return false;
 });
 
