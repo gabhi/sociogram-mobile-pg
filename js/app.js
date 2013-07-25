@@ -262,7 +262,7 @@ $(document).on('login', function () {
   //alert("login c11111111licked");
   
    FB.login(null,{scope: 'email'});
-     
+     window.location.reload();
      // alert("login1 done");
     return false;
 });
