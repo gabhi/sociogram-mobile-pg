@@ -261,12 +261,8 @@ $(document).on('click', '.logout', function () {
 $(document).on('login', function () {
   alert("login c11111111licked");
   
-   FB.login(function(response) {
-    fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
- }, {scope: 'email'});
-     fb.slider.removeCurrentPage();
-            fb.router.navigate("menu", {trigger: true});
+   FB.login(null,{scope: 'email'});
+     
       alert("login1 done");
     return false;
 });
